@@ -13,6 +13,14 @@ app.use(cors(options));
 app.use(express.json());
 app.use("/", router);
 
+// const uploadFiles = () => {
+//   return '<form action="/profile" method="post" enctype="multipart/form-data">  <input type="file" name="avatar" /></form>';
+// };
+
+// app.get("/", (req, res) => {
+//   res.send(uploadFiles());
+// });
+
 const PORT = 5000;
 
 const start = async () => {
