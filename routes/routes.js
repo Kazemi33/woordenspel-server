@@ -1,8 +1,7 @@
 import { Router } from "express";
 import {
-  clothes,
+  categorys,
   seasons,
-  setImageClothes,
   setImageWords,
   words,
 } from "../controller/data.js";
@@ -25,10 +24,9 @@ const upload = multer({
 
 export const router = Router();
 router.get("/seasons", seasons);
-router.get("/clothes", clothes);
+router.get("/category", categorys);
 router.get("/words", words);
 
 //post request for image upload
 
-router.post("/clothes/:id", upload.single("image"), setImageClothes);
 router.post("/words/:id", upload.single("image"), setImageWords);
