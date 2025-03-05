@@ -1,6 +1,8 @@
 import { Router } from "express";
 import {
   categorys,
+  getWordsCategory,
+  getWordsSeasons,
   seasons,
   setImageWords,
   words,
@@ -26,6 +28,8 @@ export const router = Router();
 router.get("/seasons", seasons);
 router.get("/category", categorys);
 router.get("/words", words);
+router.get("/words/category/:category_id", getWordsCategory);
+router.get("/words/seasons/:seasons_id", getWordsSeasons);
 
 //post request for image upload
 

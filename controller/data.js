@@ -18,6 +18,7 @@ export const categorys = async (req, res) => {
   }
 };
 
+///////////////// WORDS/////////////////////////
 export const words = async (req, res) => {
   try {
     const result = await dbQuery("SELECT * FROM words");
@@ -39,6 +40,38 @@ export const setImageWords = async (req, res) => {
     return res
       .status(200)
       .json({ data: result, message: "word image has been saved" });
+  } catch (error) {
+    return res.status(500).json({ message: error });
+  }
+};
+
+//////////////// get words per category
+export const getWordsCategory = async (req, res) => {
+  const category_id = parseInt(req.params.category_id);
+  try {
+    const result = await dbQuery("SELECT * FROM words WHERE category_id = ?", [
+      category_id,
+    ]);
+
+    return res
+      .status(200)
+      .json({ data: result, message: "words per category id " });
+  } catch (error) {
+    return res.status(500).json({ message: error });
+  }
+};
+
+//////////////// get words per seasons
+export const getWordsSeasons = async (req, res) => {
+  const seasons_id = parseInt(req.params.seasons_id);
+  try {
+    const result = await dbQuery("SELECT * FROM words WHERE seasons_id = ?", [
+      seasons_id,
+    ]);
+
+    return res
+      .status(200)
+      .json({ data: result, message: "words per seasons id " });
   } catch (error) {
     return res.status(500).json({ message: error });
   }

@@ -12,6 +12,7 @@ const options = {
 app.use(cors(options));
 app.use(express.json());
 app.use("/", router);
+app.use("/upload", express.static("upload"));
 
 const PORT = 5000;
 
